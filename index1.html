@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions</title>
+  </head>
+
+  <body>
+    <div>
+      <h1>Sum of 2 random numbers:</h1>
+      <p id="add"></p>
+    </div>
+
+    <div>
+      <h1>Product of 2 random numbers:</h1>
+      <p id="multiply"></p>
+    </div>
+
+    <div>
+      <h1>Returns last letter of a string:</h1>
+      <p id="phrase">Lorem ipsum dolor sit amet</p>
+      <p id="last"></p>
+    </div>
+
+    <div>
+      <input type="text" id="capWord" />
+      <button id="btnCheck">Click me!</button>
+      <p id="firstLetter"></p>
+    </div>
+
+    <script>
+      function genRanNum() {
+        return Math.round(Math.random() * 100);
+      }
+
+      function sum(num1, num2) {
+        return num1 + num2;
+      }
+      function product(num1, num2) {
+        return num1 * num2;
+      }
+
+      function updateSum() {
+        let num1 = genRanNum();
+        let num2 = genRanNum();
+        document.getElementById("add").innerHTML = `${num1} + ${num2} = ${sum(
+          num1,
+          num2
+        )} `;
+        document.getElementById(
+          "multiply"
+        ).innerHTML = `${num1} x ${num2} = ${product(num1, num2)} `;
+      }
+
+      function findLast() {
+        let sentence = document.getElementById("phrase").innerHTML;
+        return sentence.at(-1);
+      }
+
+      function lastLetter() {
+        document.getElementById("last").innerHTML = `${findLast()}`;
+      }
+
+      //code below needs fixing
+      function capWord(params) {
+        let words = document.getElementById("capWord").value;
+
+        document
+          .getElementById("btnCheck")
+          .addEventListener("Click", function () {
+            words.toUppercase();
+          });
+        console.log(words);
+      }
+      //fix ^^
+
+      setInterval(updateSum, 5000);
+      lastLetter();
+      updateSum();
+    </script>
+  </body>
+</html>

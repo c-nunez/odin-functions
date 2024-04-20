@@ -24,7 +24,7 @@
     </div>
 
     <div>
-      <input type="text" id="capWord" />
+      <input type="text" id="myText" />
       <button id="btnCheck">Click me!</button>
       <p id="firstLetter"></p>
     </div>
@@ -63,19 +63,18 @@
       }
 
       //code below needs fixing
-      function capWord(params) {
-        let words = document.getElementById("capWord").value;
-
-        document
-          .getElementById("btnCheck")
-          .addEventListener("Click", function () {
-            words.toUppercase();
-          });
-        console.log(words);
+      function capWords() {
+        let btn = document.getElementById("btnCheck");
+        btn.addEventListener("click", function () {
+          let word = document.getElementById("myText").value;
+          console.log(word);
+          document.getElementById("firstLetter").innerHTML = `${word}`;
+        });
       }
       //fix ^^
 
       setInterval(updateSum, 5000);
+      capWords();
       lastLetter();
       updateSum();
     </script>

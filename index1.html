@@ -66,9 +66,13 @@
       function capWords() {
         let btn = document.getElementById("btnCheck");
         btn.addEventListener("click", function () {
-          let word = document.getElementById("myText").value;
-          console.log(word);
-          document.getElementById("firstLetter").innerHTML = `${word}`;
+          let inputText = document.getElementById("myText").value;
+          let words = inputText.split(" ");
+          let firstWord =
+            words[0].charAt(0).toUpperCase() + words[0].slice(1).toLowerCase();
+          let restWords = words.slice(1).map((word) => word.toLowerCase());
+          let capitalizedText = firstWord + " " + restWords.join(" ");
+          document.getElementById("firstLetter").innerHTML = capitalizedText;
         });
       }
       //fix ^^
